@@ -42,7 +42,7 @@ const middle = function(array) {
     middleArray.push(array[(middleIndex)]);  // set the midpointArray to the element as an array
     return (middleArray);
   }
-  return middleArray;  // return an empty array 
+  return middleArray;  // return an empty array
 };
 
 assertArraysEqual(middle([1]), []); // => []
