@@ -22,24 +22,19 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 const flatten = function(array) {
-  // create empty array that will store the flattened array
   let flattenedArray = [];
-  // loop through the passed through array
-  for (let i = 0; i < array.length; i++) {
-    // if the element is an array, iterate through that array
-    if (Array.isArray(array[i])) {
-      for (let j = 0; j < array[i].length; j++) {
-        // add the item in the nested array to the flattened array
-        flattenedArray.push(array[i][j]);
-      }
+
+  array.forEach(element => {
+    if (Array.isArray(element)) {
+      flattenedArray.push(...flatten(element));
     } else {
-      // add the item in the array to the flattened array
-      flattenedArray.push(array[i]);
+      flattenedArray.push(element);
     }
-  }
-  // return the flattened array
+  });
   return flattenedArray;
-};
+}
+
 
 console.log(flatten([1, 2, [3, 4], 5, [6]])); // => [1, 2, 3, 4, 5, 6]
-assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
+
+assertArraysEqual(flatten([1, 2, [3, [54, [54]], 4], 5, [6]]), [1, 2, 3, 54, 54, 4, 5, 6]);
