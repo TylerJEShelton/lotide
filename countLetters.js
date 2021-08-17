@@ -1,10 +1,3 @@
-const assertEqual = function(actual, expected) {
-
-  // if actual and expected are equal, Pass, otherwise Fail
-  actual === expected ? console.log(`✅ Assertion Passed: ${actual} === ${expected}`) :
-    console.log(`🚨 Assertion Failed: ${actual} !== ${expected}`);
-};
-
 const countLetters = function(sentence) {
   const result = {};  // Create an empty object that will store unique characters and their times counted
 
@@ -23,15 +16,4 @@ const countLetters = function(sentence) {
   return result;  // return the object
 };
 
-// Test Function Data and Calls
-
-const testSentence1 = "Hello my name is Zach";
-const testSentence2 = "Valhalla";
-
-const result1 = countLetters(testSentence1);
-const result2 = countLetters(testSentence2);
-
-assertEqual(result1["a"], 2);
-assertEqual(result1["y"], 1);
-assertEqual(result2["l"], 3);
-assertEqual(result2["V"], 1);
+module.exports = countLetters;
